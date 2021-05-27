@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, StatusBar, Platform } from 'react-native'
+import { StyleSheet, View, StatusBar, Platform, Image, Text, ActivityIndicator  } from 'react-native'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
@@ -13,14 +13,26 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 const App = () => {
   const Tab = createBottomTabNavigator();
-  return (
+  const [screen, setScreen] = React.useState(
+    <View style={{flex:1, position:'relative', backgroundColor:'#C82972', justifyContent:'center', alignItems:'center'}}>
+      <Image 
+        style={{position:'absolute', height:'100%', width:'100%', zIndex:1}}
+        source={{uri:'https://c.wallhere.com/photos/55/f9/meat_sausage_sliced_assorted_varieties-729027.jpg!d'}}
+      />
+      <View style={{position:'absolute', height:'100%', width:'100%', zIndex:2, backgroundColor:'black', opacity:0.4}}></View>
+      <View style={{position:'absolute', zIndex:3}}>
+        <Text style={{color:'white', fontSize:56, textAlign:'center'}}>Charcuterie Artisanale Buiron</Text>
+        <ActivityIndicator size="large" color="#DBDBDB" />
+      </View>
+    </View>
+  )
+  setTimeout(() => setScreen(
     <View style={styles.container}>
       <NavigationContainer>
         <Tab.Navigator            
           screenOptions={({ route }) => ({
             tabBarIcon: () => {
               let iconName;
-
               switch(route.name){
                 case 'Accueil': 
                   (Platform.OS === 'ios')? iconName="ios-home" : iconName="md-home" ;break;
@@ -31,8 +43,6 @@ const App = () => {
                 case 'Contact': 
                   (Platform.OS === 'ios')? iconName="ios-chatbubbles" : iconName="md-chatbubbles" ;break;
               }
-
-              // You can return any component that you like here!
               return <Icon name={iconName} size={25} color='white' />;
             },
           })}           
@@ -54,7 +64,8 @@ const App = () => {
         </Tab.Navigator>
       </NavigationContainer>
     </View>
-  );
+  ), 2500)
+  return screen
 }
 
 const styles = StyleSheet.create({
@@ -65,5 +76,6 @@ const styles = StyleSheet.create({
   tab:{
     backgroundColor:'red'
   }
-});
+})
+
 export default App

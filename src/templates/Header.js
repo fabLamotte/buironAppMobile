@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         color:'white',
         zIndex:3,
-        fontSize:45,
+        fontSize:42,
         textAlign:'center',
         textShadowColor: 'black', textShadowOffset: { width: 3, height: 3 }, textShadowRadius: 1
     }

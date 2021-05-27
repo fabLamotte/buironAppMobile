@@ -22,7 +22,7 @@ const Production = () => {
                 </View>
                 <View style={styles.charcuterie}>
                     <View>
-                        <Text style={{fontFamily:'College', textAlign:'center', fontSize:45, color:'#CD9F22'}}>CHARCUTERIE</Text>
+                        <Text style={{fontFamily:'College', textAlign:'center', fontSize:40, color:'#CD9F22'}}>CHARCUTERIE</Text>
                         <Image 
                             style={styles.underline}
                             source={require(
@@ -45,7 +45,7 @@ const Production = () => {
                 </View>
                 <View style={styles.traiteur}>
                     <View>
-                        <Text style={{fontFamily:'College', textAlign:'center', fontSize:45, color:'#CD9F22'}}>TRAITEUR</Text>
+                        <Text style={{fontFamily:'College', textAlign:'center', fontSize:40, color:'#CD9F22'}}>TRAITEUR</Text>
                         <Image 
                             style={styles.underline}
                             source={require(
